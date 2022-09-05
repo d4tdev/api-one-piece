@@ -38,7 +38,7 @@ class MainController {
                         year,
                         note,
                         link:
-                           'https://api-one-piece.onrender.com/api/v1' +
+                           'https://api-one-piece.onrender.com/api/v1/' +
                            name.split(' ').join('_'),
                      });
                   });
@@ -175,7 +175,7 @@ class MainController {
             // create link gallery
             if ($('aside > nav').find('a').first().text() === 'Gallery') {
                gallery =
-                  'https://api-one-piece.onrender.com/api/v1' +
+                  'https://api-one-piece.onrender.com/api/v1/' +
                   name.split(' ').join('_') +
                   '/Gallery';
             } else {
