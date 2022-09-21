@@ -1,6 +1,6 @@
 # api-one-piece
 
-> take infor from api
+> take infor from api  <br>
 > web-scraped from https://onepiece.fandom.com/wiki/List_of_Canon_Characters
 
 ## Get All Characters
@@ -21,7 +21,7 @@
 
 ## Get One Character
 
-> https://api-one-piece.onrender.com/api/v1/{name}
+> https://api-one-piece.onrender.com/api/v1/{name}  <br>
 > ex: https://api-one-piece.onrender.com/api/v1/Sanji
 
 | Key           | Type   |
@@ -43,5 +43,5 @@
 
 ## Get Gallery From Character (if have)
 
-> https://api-one-piece.onrender.com/api/v1/{name}/Gallery  
+> https://api-one-piece.onrender.com/api/v1/{name}/Gallery  <br>
 > ex: https://api-one-piece.onrender.com/api/v1/Sanji/Gallery
