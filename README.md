@@ -43,5 +43,5 @@
 
 ## Get Gallery From Character (if have)
 
-> https://api-one-piece.onrender.com/api/v1/{name}/Gallery
+> https://api-one-piece.onrender.com/api/v1/{name}/Gallery  
 > ex: https://api-one-piece.onrender.com/api/v1/Sanji/Gallery
