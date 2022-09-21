@@ -7,7 +7,6 @@ const characterUrl = 'https://onepiece.fandom.com/wiki/';
 class MainController {
    // GET ALL CHARACTERS
    getAllCharacters = async (req, res) => {
-      const nameQuery = req.query;
       const thumbnails = [];
 
       try {
@@ -121,6 +120,7 @@ class MainController {
                         titles.push($(this).text().split(':')[0]);
                      });
 
+                  // get details character
                   $(this)
                      .find('section > div')
                      .each(function () {
@@ -155,7 +155,7 @@ class MainController {
                         }
                      });
                   for (let i = 0; i < titles.length; i++) {
-                     characterObj[titles[i]] = details[i];
+                     characterObj[titles[i].toLowerCase()] = details[i];
                   }
                });
 
@@ -180,11 +180,11 @@ class MainController {
                      });
 
                   for (let i = 0; i < titlesDevilFruit.length; i++) {
-                     devilFruitObj[titlesDevilFruit[i]] = detailsDevilFruit[i];
+                     devilFruitObj[titlesDevilFruit[i].toLowerCase()] = detailsDevilFruit[i];
                   }
                });
             } else {
-               devilFruitObj['Devil Fruit'] = 'No Devil Fruit';
+               devilFruitObj['devil fruit'] = 'No Devil Fruit';
             }
 
             // create link gallery
