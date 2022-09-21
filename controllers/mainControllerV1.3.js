@@ -7,6 +7,7 @@ const characterUrl = 'https://onepiece.fandom.com/wiki/';
 class MainController {
    // GET ALL CHARACTERS
    getAllCharacters = async (req, res) => {
+      const nameQuery = req.query;
       const thumbnails = [];
 
       try {
@@ -44,7 +45,21 @@ class MainController {
                   });
             });
 
-            res.status(200).json({ count: thumbnails.length, thumbnails });
+            // api for search by name
+            if (req.query.name) {
+               let thumbnailsFilter = thumbnails.filter(obj => {
+                  return (
+                     obj.name
+                        .toLowerCase()
+                        .indexOf(req.query.name.toLowerCase()) !== -1
+                  );
+               });
+               return res.status(200).json(thumbnailsFilter);
+            } else {
+               return res
+                  .status(200)
+                  .json({ count: thumbnails.length, thumbnails });
+            }
          });
       } catch (e) {
          res.status(500).json({ msg: e });
