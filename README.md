@@ -1,4 +1,5 @@
-# api-one-piece
+![GIF-LUFFY](https://i.pinimg.com/originals/50/c5/f1/50c5f1847013012ee0f25f67fdddb8d9.gif)  <br>
+# API One Piece
 
 > take infor from api  <br>
 > web-scraped from https://onepiece.fandom.com/wiki/List_of_Canon_Characters
