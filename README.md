@@ -5,7 +5,7 @@
 
 ## Get All Characters
 
-> https://api-one-piece.onrender.com/api/v1
+``` GET: https://api-one-piece.onrender.com/api/v1 ```
 
 | Key     | Type                       |
 | ------- | -------------------------- |
@@ -15,13 +15,13 @@
 | year    | String                     |
 | link    | String (get one character) |
 
-## can use search by name
+## Query Search
 
 > ex: https://api-one-piece.onrender.com/api/v1?name=Sanj
 
 ## Get One Character
 
-> https://api-one-piece.onrender.com/api/v1/{name}  <br>
+```GET: https://api-one-piece.onrender.com/api/v1/{name}  ```<br>
 > ex: https://api-one-piece.onrender.com/api/v1/Sanji
 
 | Key           | Type   |
@@ -43,5 +43,5 @@
 
 ## Get Gallery From Character (if have)
 
-> https://api-one-piece.onrender.com/api/v1/{name}/Gallery  <br>
+```GET: https://api-one-piece.onrender.com/api/v1/{name}/Gallery  ```<br>
 > ex: https://api-one-piece.onrender.com/api/v1/Sanji/Gallery
