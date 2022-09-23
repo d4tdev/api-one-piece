@@ -6,7 +6,7 @@ const app = express();
 
 const routes = require('./routes/index');
 
-app.use(express.static(path.join(__dirname, 'home.html')));
+app.use(express.static(path.join(__dirname, './home.html')));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
