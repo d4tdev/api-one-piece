@@ -1,10 +1,16 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
+const path = require('path');
 
 const url = 'https://onepiece.fandom.com/wiki/List_of_Canon_Characters';
 const characterUrl = 'https://onepiece.fandom.com/wiki/';
 
 class MainController {
+   // GET HOME PAGE
+   getHomePage = (req, res) => {
+      return res.sendFile(path.join(__dirname, '../home.html'));
+   };
+
    // GET ALL CHARACTERS
    getAllCharacters = async (req, res) => {
       const thumbnails = [];
@@ -43,6 +49,28 @@ class MainController {
                      });
                   });
             });
+
+            // limit
+            if (req.query.limit) {
+               const limit = parseInt(req.query.limit);
+               if (limit > 0) {
+                  return res.status(200).json(thumbnails.slice(0, limit));
+               } else {
+                  return res.status(200).json(thumbnails);
+               }
+            }
+
+            // pagination
+            if (req.query.page) {
+               const PAGE_SIZE = 20;
+               let page = parseInt(req.query.page);
+               if (page < 1) {
+                  page = 1;
+                  return res.status(200).json(thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
+               } else {
+                  return res.status(200).json(thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
+               }
+            }
 
             // api for search by name
             if (req.query.name) {
@@ -180,7 +208,8 @@ class MainController {
                      });
 
                   for (let i = 0; i < titlesDevilFruit.length; i++) {
-                     devilFruitObj[titlesDevilFruit[i].toLowerCase()] = detailsDevilFruit[i];
+                     devilFruitObj[titlesDevilFruit[i].toLowerCase()] =
+                        detailsDevilFruit[i];
                   }
                });
             } else {
