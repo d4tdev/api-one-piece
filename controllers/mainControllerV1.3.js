@@ -13,7 +13,7 @@ class MainController {
 
    // GET ALL CHARACTERS
    getAllCharacters = async (req, res) => {
-      const thumbnails = [];
+      let thumbnails = [];
 
       try {
          axios(url).then(response => {
@@ -50,43 +50,68 @@ class MainController {
                   });
             });
 
-            // limit
-            if (req.query.limit) {
-               const limit = parseInt(req.query.limit);
-               if (limit > 0) {
-                  return res.status(200).json(thumbnails.slice(0, limit));
-               } else {
-                  return res.status(200).json(thumbnails);
-               }
-            }
+            // // limit
+            // if (req.query.limit) {
+            //    const limit = parseInt(req.query.limit);
+            //    if (limit > 0) {
+            //       return res.status(200).json(thumbnails.slice(0, limit));
+            //    } else {
+            //       return res.status(200).json(thumbnails);
+            //    }
+            // }
 
+            // // pagination
+            // if (req.query.page) {
+            //    const PAGE_SIZE = 20;
+            //    let page = parseInt(req.query.page);
+            //    if (page < 1) {
+            //       page = 1;
+            //       return res.status(200).json(thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
+            //    } else {
+            //       return res.status(200).json(thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
+            //    }
+            // }
+
+            // // api for search by name
+            // if (req.query.name) {
+            //    let thumbnailsFilter = thumbnails.filter(obj => {
+            //       return (
+            //          obj.name
+            //             .toLowerCase()
+            //             .indexOf(req.query.name.toLowerCase()) !== -1
+            //       );
+            //    });
+            //    return res.status(200).json(thumbnailsFilter);
+            // } else {
+            //    return res
+            //       .status(200)
+            //       .json({ count: thumbnails.length, thumbnails });
+            // }
+
+            let {page, limit, name} = req.query;
             // pagination
-            if (req.query.page) {
+            if (page) {
+               page = parseInt(page);
                const PAGE_SIZE = 20;
-               let page = parseInt(req.query.page);
-               if (page < 1) {
-                  page = 1;
-                  return res.status(200).json(thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
-               } else {
-                  return res.status(200).json(thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
-               }
+               thumbnails = thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
             }
-
-            // api for search by name
-            if (req.query.name) {
-               let thumbnailsFilter = thumbnails.filter(obj => {
+            // search query
+            if (name) {
+               thumbnails = thumbnails.filter(obj => {
                   return (
                      obj.name
                         .toLowerCase()
-                        .indexOf(req.query.name.toLowerCase()) !== -1
+                        .indexOf(name.toLowerCase()) !== -1
                   );
                });
-               return res.status(200).json(thumbnailsFilter);
-            } else {
-               return res
-                  .status(200)
-                  .json({ count: thumbnails.length, thumbnails });
             }
+            // limit query
+            if (limit) {
+               limit = parseInt(limit);
+               thumbnails = thumbnails.slice(0, limit);
+            }
+
+            return res.status(200).json(thumbnails);
          });
       } catch (e) {
          res.status(500).json({ msg: e });
