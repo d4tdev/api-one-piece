@@ -1,9 +1,10 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 const path = require('path');
+require('dotenv').config();
 
-const url = 'https://onepiece.fandom.com/wiki/List_of_Canon_Characters';
-const characterUrl = 'https://onepiece.fandom.com/wiki/';
+const url = process.env.URL;
+const characterUrl = process.env.CHARACTER_URL;
 
 class MainController {
    // GET HOME PAGE
