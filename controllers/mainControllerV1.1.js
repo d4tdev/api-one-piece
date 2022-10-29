@@ -25,9 +25,7 @@ class MainController {
                   .find('td:nth-child(2) > div:nth-child(2)')
                   .prop('innerText')
                   .trim();
-               const link = $(this)
-                  .find('td:nth-child(2) > div:nth-child(3) > a')
-                  .attr('href');
+               const link = $(this).find('td:nth-child(2) > div:nth-child(3) > a').attr('href');
                // console.log( link);
                const exName = name.split(',').join('');
 
@@ -36,9 +34,7 @@ class MainController {
                   image,
                   type,
                   favorites,
-                  link:
-                     'http://localhost:3000/api/v1/' +
-                     exName.replace(/\s/g, '_'),
+                  link: 'https://letsfood.click/api/v1/' + exName.replace(/\s/g, '_'),
                });
             });
             res.status(200).json(thumbnails);
@@ -66,9 +62,7 @@ class MainController {
                   name = $(this).find('.infobox-above').text();
 
                   // get image
-                  image = $(this)
-                     .find('td.infobox-image > a > img')
-                     .attr('src');
+                  image = $(this).find('td.infobox-image > a > img').attr('src');
                   // console.log(image)
                   //https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Roronoa_Zoro.jpg/220px-Roronoa_Zoro.jpg
 

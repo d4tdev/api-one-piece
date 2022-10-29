@@ -25,9 +25,7 @@ class MainController {
                   .find('td:nth-child(2) > div:nth-child(2)')
                   .prop('innerText')
                   .trim();
-               const link = $(this)
-                  .find('td:nth-child(2) > div:nth-child(3) > a')
-                  .attr('href');
+               const link = $(this).find('td:nth-child(2) > div:nth-child(3) > a').attr('href');
                // console.log( link);
 
                thumbnails.push({
@@ -36,7 +34,7 @@ class MainController {
                   type,
                   favorites,
                   link:
-                     'http://localhost:3000/api/v1/' +
+                     'https://letsfood.click/api/v1/' +
                      link.split('/')[4] +
                      '/' +
                      link.split('/')[5],
@@ -58,22 +56,20 @@ class MainController {
 
       try {
          if (req.params.name && req.params.id) {
-            axios(characterUrl + req.params.id + '/' + req.params.name).then(
-               response => {
-                  const html = response.data;
-                  const $ = cheerio.load(html);
+            axios(characterUrl + req.params.id + '/' + req.params.name).then(response => {
+               const html = response.data;
+               const $ = cheerio.load(html);
 
-                  $('td', html)
-                     .last()
-                     .each(function () {
-                        // $(this).find('td:nth-child(2)').each(function(){
-                        titles.push($(this).prop('innerText'));
-                        // })
-                     });
-                  console.log(titles);
-                  res.status(200).json(titles);
-               }
-            );
+               $('td', html)
+                  .last()
+                  .each(function () {
+                     // $(this).find('td:nth-child(2)').each(function(){
+                     titles.push($(this).prop('innerText'));
+                     // })
+                  });
+               console.log(titles);
+               res.status(200).json(titles);
+            });
          } else {
             res.status(404).json({ msg: 'Not found from web!!!' });
          }
