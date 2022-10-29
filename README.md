@@ -23,11 +23,11 @@
 
 ### Query Limit
 
-> ex: hhttps://api-0ne-piece.herokuapp.com/api/v1?limit=10
+> ex: https://api-0ne-piece.herokuapp.com/api/v1?limit=10
 
 ### Query Page - Pagination
 
-> ex: hhttps://api-0ne-piece.herokuapp.com/api/v1?page=1
+> ex: https://api-0ne-piece.herokuapp.com/api/v1?page=1
 
 ## Get One Character
 
