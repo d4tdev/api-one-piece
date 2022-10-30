@@ -2,7 +2,7 @@
 
 # API One Piece
 
-> take infor from api  <br>
+> take info from api  <br>
 > web-scraped from https://onepiece.fandom.com/wiki/List_of_Canon_Characters
 
 ## Get All Characters
