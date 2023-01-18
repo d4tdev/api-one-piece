@@ -45,7 +45,7 @@ class MainController {
                         year,
                         note,
                         link:
-                           'https://api-0ne-piece.herokuapp.com/api/v1/' +
+                           'https://api-one-piece.cyclic.app/api/v1/' +
                            name.split(' ').join('_'),
                      });
                   });
@@ -89,20 +89,21 @@ class MainController {
             //       .json({ count: thumbnails.length, thumbnails });
             // }
 
-            let {page, limit, name} = req.query;
+            let { page, limit, name } = req.query;
             // pagination
             if (page) {
                page = parseInt(page);
                const PAGE_SIZE = 20;
-               thumbnails = thumbnails.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+               thumbnails = thumbnails.slice(
+                  (page - 1) * PAGE_SIZE,
+                  page * PAGE_SIZE
+               );
             }
             // search query
             if (name) {
                thumbnails = thumbnails.filter(obj => {
                   return (
-                     obj.name
-                        .toLowerCase()
-                        .indexOf(name.toLowerCase()) !== -1
+                     obj.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
                   );
                });
             }
@@ -245,7 +246,7 @@ class MainController {
             // create link gallery
             if ($('aside > nav').find('a').first().text() === 'Gallery') {
                gallery =
-                  'https://api-0ne-piece.herokuapp.com/api/v1/' +
+                  'https://api-one-piece.cyclic.app/api/v1/' +
                   name.split(' ').join('_') +
                   '/Gallery';
             } else {

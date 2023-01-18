@@ -7,7 +7,7 @@
 
 ## Get All Characters
 
-```GET: https://api-0ne-piece.herokuapp.com/api/v1```
+```GET: https://api-one-piece.cyclic.app/api/v1```
 
 | Key     | Type                       |
 | ------- | -------------------------- |
@@ -19,21 +19,21 @@
 
 ### Query Search
 
-> ex: https://api-0ne-piece.herokuapp.com/api/v1?name=Sanj
+> ex: https://api-one-piece.cyclic.app/api/v1?name=Sanj
 
 ### Query Limit
 
-> ex: https://api-0ne-piece.herokuapp.com/api/v1?limit=10
+> ex: https://api-one-piece.cyclic.app/api/v1?limit=10
 
 ### Query Page - Pagination
 
-> ex: https://api-0ne-piece.herokuapp.com/api/v1?page=1
+> ex: https://api-one-piece.cyclic.app/api/v1?page=1
 
 ## Get One Character
 
-```GET: https://api-0ne-piece.herokuapp.com/api/v1/{name}  ```<br>
+```GET: https://api-one-piece.cyclic.app/api/v1/{name}  ```<br>
 
-> ex: https://api-0ne-piece.herokuapp.com/api/v1/Sanji
+> ex: https://api-one-piece.cyclic.app/api/v1/Sanji
 
 | Key           | Type                 |
 | ------------- | -------------------- |
@@ -54,6 +54,6 @@
 
 ## Get Gallery From Character (if have)
 
-```GET: https://api-0ne-piece.herokuapp.com/api/v1/{name}/Gallery  ```<br>
+```GET: https://api-one-piece.cyclic.app/api/v1/{name}/Gallery  ```<br>
 
-> ex: https://api-0ne-piece.herokuapp.com/api/v1/Sanji/Gallery
+> ex: https://api-one-piece.cyclic.app/api/v1/Sanji/Gallery
